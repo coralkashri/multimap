@@ -1,7 +1,6 @@
 #include <iostream>
 #include "multimap.h"
 #include "keys_management.h"
-// ................ Tests ...................
 
 int main() {
     multimap<std::string> mp = {

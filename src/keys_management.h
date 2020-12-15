@@ -1,5 +1,5 @@
-#ifndef BANKMANAGEMENT_KEYS_MANAGEMENT_H
-#define BANKMANAGEMENT_KEYS_MANAGEMENT_H
+#ifndef MULTIMAP_KEYS_MANAGEMENT_H
+#define MULTIMAP_KEYS_MANAGEMENT_H
 
 #pragma GCC warning "This header is experimental and not fully implemented yet. Use string_keys_management.h instead.")
 
@@ -33,4 +33,4 @@ private:
     std::string description;
 };
 
-#endif //BANKMANAGEMENT_KEYS_MANAGEMENT_H
+#endif //MULTIMAP_KEYS_MANAGEMENT_H

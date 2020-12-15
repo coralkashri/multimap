@@ -1,5 +1,5 @@
-#ifndef BANKMANAGEMENT_MULTIMAP_H
-#define BANKMANAGEMENT_MULTIMAP_H
+#ifndef MULTIMAP_MULTIMAP_H
+#define MULTIMAP_MULTIMAP_H
 
 #include <iostream>
 #include <vector>
@@ -26,4 +26,4 @@ private:
     std::map<string_keys_management, V> values;
 };
 
-#endif //BANKMANAGEMENT_MULTIMAP_H
+#endif //MULTIMAP_MULTIMAP_H
