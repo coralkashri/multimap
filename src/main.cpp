@@ -7,7 +7,9 @@ int main() {
     multimap<std::string> mp = {
             {
                     {{{"key1", "key2", "key3"}, "description1"}, "value"},
-                    {{{"key4", "key5", "key6"}, "description1"}, "value2"}
+                    {{{"key5", "key6"}, "description1"}, "value2"},
+                    {{{"key7"}, "description1"}, "value2"},
+                    {{{"key8", "key9", "key10", "key11"}, "description1"}, "value2"}
             }
     };
     return EXIT_SUCCESS;
