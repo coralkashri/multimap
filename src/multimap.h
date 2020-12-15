@@ -27,6 +27,7 @@ public:
     multimap(const std::map<string_keys_management, V> &ref) : items(ref) {}
     multimap& operator=(const std::map<string_keys_management, V> &ref) {
         items = ref;
+        return *this;
     }
 
     V& at(const std::string &key) {
