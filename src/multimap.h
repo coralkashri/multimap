@@ -12,7 +12,7 @@
 #include <vector>
 #include <map>
 #include "string_keys_management.h"
-#include "iterators_helpers/use_collection_iterator.h"
+#include "iterator_helpers/use_collection_iterator.h"
 
 template <template <typename ...> typename Container, typename K, typename V>
 using my_collection_iterator = use_collection_iterator<Container, K, V>;
@@ -23,6 +23,7 @@ public:
     // A convenient access to inherited type members
     using base_types = my_collection_iterator<std::map, string_keys_management, V>;
 
+    multimap() = default;
     multimap(const std::map<string_keys_management, V> &ref) : items(ref) {}
     multimap& operator=(const std::map<string_keys_management, V> &ref) {
         items = ref;
