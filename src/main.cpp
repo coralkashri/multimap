@@ -3,7 +3,7 @@
 #include "keys_management.h"
 
 int main() {
-    multimap<std::string> mp = {
+    multimap<std::string> mmp = {
             {
                     {{{"key1", "key2", "key3"}, "description1"}, "value"},
                     {{{"key5", "key6"}, "description1"}, "value2"},
