@@ -10,56 +10,16 @@
 
 #include <iostream>
 #include <vector>
-#include <unordered_map>
-#include "string_keys_management.h"
-#include "iterator_helpers/use_collection_iterator.h"
-#include "hash_functions.h"
+#include <set>
+#include <memory>
+#include "multimap_entry.h"
 
-template <typename K, typename V>
-using multimap_container_type = std::unordered_map<K, V, my_utils::my_hasher>;
-
-using multimap_key_type = string_keys_management;
-
-template <template <typename ...> typename Container, typename K, typename V>
-using my_collection_iterator = use_collection_iterator_without_reverse<Container, K, V>;
-
-template <typename V>
-class multimap : public my_collection_iterator<multimap_container_type, multimap_key_type, V> {
+template <typename KEY_T, typename VAL_T>
+class multimap{
 public:
-    // A convenient access to inherited type members
-    using base_types = my_collection_iterator<multimap_container_type, multimap_key_type, V>;
-
-public:
-    using items_type = multimap_container_type<multimap_key_type, V>;
-
-public:
-    multimap() = default;
-    multimap(const items_type &ref) : items(ref) {}
-    multimap& operator=(const items_type &ref) {
-        items = ref;
-        return *this;
-    }
-
-    V& at(const std::string &key) {
-        return items.at({key});
-    }
-
-    void insert(const string_keys_management &keys, V val) {
-        items.insert({keys, val});
-    }
-
-    /* Required Iterators Access Methods */
-
-    typename base_types::iterator begin() { return items.begin(); }
-    typename base_types::iterator end() { return items.end(); }
-    [[nodiscard]] typename base_types::const_iterator cbegin() const { return items.cbegin(); }
-    [[nodiscard]] typename base_types::const_iterator cend() const { return items.cend(); }
-
-    bool empty() { return items.empty(); }
-    typename base_types::size_type size() { return items.size(); }
-
 private:
-    items_type items;
+    std::vector<std::shared_ptr<multimap_entry<KEY_T, VAL_T>>> entries;
+
 };
 
 #endif //MULTIMAP_MULTIMAP_H
