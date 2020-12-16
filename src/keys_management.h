@@ -56,7 +56,7 @@ public:
         for (auto &key : ref.keys) {
             out << key;
             if (&key != &ref.keys.back()) {
-                out << ",";
+                out << ", ";
             }
         }
         out << "]";

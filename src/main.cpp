@@ -29,10 +29,10 @@ int main() {
         std::cout << keys_relation << std::endl;
     }
     /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        [key1,key2,key3] - description1
-        [key5,key6] - description2
-        [key7,description3]
-        [key8,key9,key10,key11] - description4
+        [key1, key2, key3] - description1
+        [key5, key6] - description2
+        [key7, description3]
+        [key8, key9, key10, key11] - description4
      */
 
     return EXIT_SUCCESS;
