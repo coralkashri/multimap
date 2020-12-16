@@ -61,6 +61,10 @@ public:
         return items.at(key);
     }
 
+    VAL_T at(const std::string &key) const {
+        return items.at(key);
+    }
+
     void insert(const keys_management<KEY_T> &keys, VAL_T val) {
         parse_multikey_map_to_multimap(multimap_key_type({keys, val}));
     }
