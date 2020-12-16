@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <type_traits>
+#include <ranges>
 
 class string_keys_management {
 public:
@@ -13,19 +14,25 @@ public:
     string_keys_management& operator=(string_keys_management&&) = default;
 
     string_keys_management(const std::initializer_list<std::string>& keys, const std::string &description = "")
-    : keys(keys), description(description) {}
+            : description(description) {
+        auto filtered_keys = keys | std::views::filter([] (auto &key) { return !key.empty(); }) | std::views::common;
+        this->keys.insert(this->keys.begin(), filtered_keys.begin(), filtered_keys.end());
+    }
 
-    bool operator==(const std::string &ref) {
+    bool operator==(const std::string &ref) const {
         auto it = std::find(keys.begin(), keys.end(), ref);
         return it != keys.end();
     }
 
-    bool operator!=(const std::string &ref) {
-        return !(*this == ref);
+    bool operator==(const string_keys_management &ref) const {
+        for (auto &key : ref.keys) {
+            if (key == *this) return true;
+        }
+        return false;
     }
 
-    bool operator<(const string_keys_management &ref) const {
-        return ref.description < description;
+    bool operator!=(const std::string &ref) const {
+        return !(*this == ref);
     }
 
     friend std::ostream& operator<<(std::ostream& out, const string_keys_management &ref) {
@@ -42,6 +49,8 @@ public:
         }
         return out;
     }
+
+    [[nodiscard]] std::string get_description() const {return description; }
 
 private:
     std::vector<std::string> keys;
