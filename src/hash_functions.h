@@ -20,8 +20,8 @@ namespace my_utils {
                 }
 
                 /// ------------------------- Specializations for base types goes here -------------------------
-                template<>
-                inline std::size_t hash(string_keys_management const &t) {
+                template<typename T>
+                inline std::size_t hash(keys_management<T> const &t) {
                     return std::hash<std::string>{}(t.get_description());
                 }
             }
