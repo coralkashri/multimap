@@ -7,7 +7,7 @@ multimap<std::string, int(*)()> mp = {
          {
                 {{{"key1", "key2", "key3"}, "description1"}, func},
                 {{std::initializer_list<std::string>{"key5", "key6"}, "description2"}, func2},
-                {{{"key7"}, "description3"}, func3},
+                {{std::initializer_list<std::string>{"key7"}, "description3"}, func3},
                 {{{"key8", "key9", "key10", "key11"}, "description4"}, func4}
          }
 };
@@ -27,7 +27,7 @@ for (auto &keys_relation : mp.get_key_relations()) {
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     [key1, key2, key3] - description1
     [key5, key6] - description2
-    [key7, description3]
+    [key7] - description3
     [key8, key9, key10, key11] - description4
 */
 ```
